@@ -21,3 +21,4 @@ Need:
 ## Related Projects and Demos
 
 * Check the [Simplicity](https://github.com/luciodj/Simplicity) project for more demo like this using the MPLAB Code Configurator and the MikroElektronika Click(tm) boards.
+* Use the [OLED Picture Editor](https://github.com/luciodj/OLED-Picture-Editor) to create new images. 

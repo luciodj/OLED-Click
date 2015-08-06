@@ -1,6 +1,7 @@
 /*
  * File: oled.h
 */
+#include "mcc_generated_files/mcc.h"
 
 #define OLED_WIDTH             96
 #define OLED_HEIGHT            39
@@ -43,3 +44,24 @@
 #define SSD1306_LEFT_HORIZONTAL_SCROLL                  0x27
 #define SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL    0x29
 #define SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL     0x2A
+
+#define SPI_Write( x)       SPI_Exchange8bit( x)
+
+void OLED_Command( uint8_t);
+
+void OLED_Data( uint8_t);
+
+void OLED_Initialize( void);
+
+// Set row
+void OLED_SetRow( uint8_t);
+
+// Set column
+void OLED_SetColumn( uint8_t);
+
+// Display picture form array in memory
+void OLED_PutPicture( const uint8_t *);
+
+// control contrast in steps  from 1 to 256
+void OLED_SetContrast( uint8_t);
+

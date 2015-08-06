@@ -8,18 +8,18 @@
     pin_manager.c
 
   Summary:
-    This is the Pin Manager file generated using MPLAB® Code Configurator
+    This is the Pin Manager file generated using MPLABï¿½ Code Configurator
 
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1709
         Driver Version    :  1.02
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
-*/
+ */
 
 /*
 Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
@@ -42,14 +42,13 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 #include <xc.h>
 #include "pin_manager.h"
 #include <stdbool.h>
 
-void PIN_MANAGER_Initialize(void)
-{
+void PIN_MANAGER_Initialize(void) {
     LATA = 0x00;
     TRISA = 0x17;
     ANSELA = 0x17;
@@ -57,7 +56,7 @@ void PIN_MANAGER_Initialize(void)
 
     LATB = 0x00;
     TRISB = 0xB0;
-    ANSELB = 0x30;
+    ANSELB = 0x20;
     WPUB = 0x00;
 
     LATC = 0x00;
@@ -67,16 +66,17 @@ void PIN_MANAGER_Initialize(void)
 
     OPTION_REGbits.nWPUEN = 0x01;
 
-        
+
     bool state = GIE;
     GIE = 0;
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
 
-    SSPCLKPPSbits.SSPCLKPPS = 0x0E;    // RB6->MSSP:SCK
-    RB6PPSbits.RB6PPS = 0x10;    // RB6->MSSP:SCK
-    RC7PPSbits.RC7PPS = 0x12;    // RC7->MSSP:SDO
+    SSPDATPPSbits.SSPDATPPS = 0x0C; // RB4->MSSP:SDI
+    SSPCLKPPSbits.SSPCLKPPS = 0x0E; // RB6->MSSP:SCK
+    RB6PPSbits.RB6PPS = 0x10; // RB6->MSSP:SCK
+    RC7PPSbits.RC7PPS = 0x12; // RC7->MSSP:SDO
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
     PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
@@ -84,4 +84,4 @@ void PIN_MANAGER_Initialize(void)
 }
 /**
  End of File
-*/
+ */

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration device="PIC16F1709" mcc_version="v2.25">
+<configuration device="PIC16F1709" mcc_version="v2.25.2">
     <managers>
         <manager generated="true" name="Pin Manager" reloadPin="manual">
             <setting name="package" option="DIP20"/>
             <setting name="sorting" option="true"/>
             <resource customName="OLED_RST" digital="true" direction="OUTPUT" function="RA5" ioc="0" module="GPIO" name="RA5" start="false" type="pin" wpu="false"/>
+            <resource customName="SDI" digital="true" direction="INPUT" function="SDI" ioc="0" module="MSSP" name="RB4" start="false" type="pin" wpu="false"/>
             <resource customName="SCK" digital="true" direction="BIDIRECTIONAL_OUTPUT" function="SCK" ioc="0" module="MSSP" name="RB6" start="false" type="pin" wpu="false"/>
             <resource customName="OLED_CS" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
             <resource customName="OLED_DC" digital="true" direction="OUTPUT" function="RC5" ioc="0" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
             <resource customName="SDO" digital="true" direction="OUTPUT" function="SDO" ioc="0" module="MSSP" name="RC7" start="false" type="pin" wpu="false"/>
-            <file checksum="731575956" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="969309547" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="1046152897" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="4262416223" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="Maximum speed 32MHz (w/PLL) internal oscillator" name="Initialize">
@@ -47,8 +48,8 @@
             <setting name="PLLEN" option="ON"/>
             <setting name="BORV" option="LO"/>
             <setting name="generateConfigBits" option="true"/>
-            <file checksum="3711773999" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
-            <file checksum="1710884196" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+            <file checksum="1704080008" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="530647899" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
         </manager>
     </managers>
     <modules>
@@ -58,7 +59,7 @@
             <resource customName="OLED_CS" digital="true" direction="OUTPUT" function="RC4" ioc="0" module="GPIO" name="RC4" start="false" type="pin" wpu="false"/>
         </module>
         <module generated="true" mode="SPI Master" name="MSSP" order="1" reloadPin="manual" type="mssp">
-            <initializer comment="Configure mode 0 and maximum speed" name="Initialize">
+            <initializer comment="Configure SPI master (mode 0) " name="Initialize">
                 <setting name="BF" option="RCinprocess_TXcomplete" register="SSP1STAT"/>
                 <setting name="UA" option="dontupdate" register="SSP1STAT"/>
                 <setting name="SMP" option="Sample At Middle" register="SSP1STAT"/>
@@ -80,8 +81,8 @@
             <setting name="BCLI" option="false"/>
             <setting name="WriteBufferSize" option="8"/>
             <setting name="ReadBufferSize" option="8"/>
-            <file checksum="842030922" modified="false" name="spi.c" path="mcc_generated_files/spi.c"/>
-            <file checksum="1183154612" modified="false" name="spi.h" path="mcc_generated_files/spi.h"/>
+            <file checksum="522342209" modified="false" name="spi.c" path="mcc_generated_files/spi.c"/>
+            <file checksum="4096769327" modified="false" name="spi.h" path="mcc_generated_files/spi.h"/>
         </module>
     </modules>
 </configuration>

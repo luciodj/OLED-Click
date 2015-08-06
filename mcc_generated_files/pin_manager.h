@@ -8,18 +8,18 @@
     pin_manager.h
 
   @Summary:
-    This is the Pin Manager file generated using MPLAB® Code Configurator
+    This is the Pin Manager file generated using MPLABï¿½ Code Configurator
 
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25
+        Product Revision  :  MPLABï¿½ Code Configurator - v2.25.2
         Device            :  PIC16F1709
         Version           :  1.01
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
-*/
+ */
 
 /*
 Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
@@ -42,7 +42,7 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 #ifndef PIN_MANAGER_H
 #define PIN_MANAGER_H
@@ -73,6 +73,23 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define OLED_RST_SetPullup()    do { WPUA5 = 1; } while(0)
 #define OLED_RST_ResetPullup()   do { WPUA5 = 0; } while(0)
+// get/set SDI aliases
+#define SDI_TRIS               TRISB4
+#define SDI_LAT                LATB4
+#define SDI_PORT               RB4
+#define SDI_WPU                WPUB4
+#define SDI_ANS                ANSB4
+#define SDI_SetHigh()    do { LATB4 = 1; } while(0)
+#define SDI_SetLow()   do { LATB4 = 0; } while(0)
+#define SDI_Toggle()   do { LATB4 = ~LATB4; } while(0)
+#define SDI_GetValue()         RB4
+#define SDI_SetDigitalInput()    do { TRISB4 = 1; } while(0)
+#define SDI_SetDigitalOutput()   do { TRISB4 = 0; } while(0)
+
+#define SDI_SetPullup()    do { WPUB4 = 1; } while(0)
+#define SDI_ResetPullup()   do { WPUB4 = 0; } while(0)
+#define SDI_SetAnalogMode()   do { ANSB4 = 1; } while(0)
+#define SDI_SetDigitalMode()   do { ANSB4 = 0; } while(0)
 // get/set SCK aliases
 #define SCK_TRIS               TRISB6
 #define SCK_LAT                LATB6
@@ -143,7 +160,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  * @Example
     PIN_MANAGER_Initialize();
  */
-void PIN_MANAGER_Initialize (void);
+void PIN_MANAGER_Initialize(void);
 
 /**
  * @Param
@@ -160,4 +177,4 @@ void PIN_MANAGER_IOC(void);
 #endif // PIN_MANAGER_H
 /**
  End of File
-*/
+ */
